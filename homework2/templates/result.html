@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Comparison Result</title>
+</head>
+<body>
+    <h1>Food Comparison Result</h1>
+
+    {% if error %}
+        <p>{{ error }}</p>
+        <p><a href="/">Back</a></p>
+    {% else %}
+        <div>
+            <h2>Winner: {{ result.winner }}</h2>
+            <p>{{ result.explanation }}</p>
+            <p><strong>Criterion:</strong> {{ result.criteria }}</p>
+        </div>
+
+        <div>
+            <h3>Compared products</h3>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Product A</th>
+                    <th>Product B</th>
+                </tr>
+                <tr>
+                    <td>Query</td>
+                    <td>{{ result.product_a.query }}</td>
+                    <td>{{ result.product_b.query }}</td>
+                </tr>
+                <tr>
+                    <td>Matched product</td>
+                    <td>{{ result.product_a.name }}</td>
+                    <td>{{ result.product_b.name }}</td>
+                </tr>
+                <tr>
+                    <td>Calories</td>
+                    <td>{{ result.product_a.nutrition_per_100g.kcal }}</td>
+                    <td>{{ result.product_b.nutrition_per_100g.kcal }}</td>
+                </tr>
+                <tr>
+                    <td>Sugar [g]</td>
+                    <td>{{ result.product_a.nutrition_per_100g.sugar }}</td>
+                    <td>{{ result.product_b.nutrition_per_100g.sugar }}</td>
+                </tr>
+                <tr>
+                    <td>Protein [g]</td>
+                    <td>{{ result.product_a.nutrition_per_100g.protein }}</td>
+                    <td>{{ result.product_b.nutrition_per_100g.protein }}</td>
+                </tr>
+                <tr>
+                    <td>Salt [g]</td>
+                    <td>{{ result.product_a.nutrition_per_100g.salt }}</td>
+                    <td>{{ result.product_b.nutrition_per_100g.salt }}</td>
+                </tr>
+            </table>
+        </div>
+
+        {% if result.product_a.warnings %}
+            <div>
+                <h3>Warnings for Product A</h3>
+                <ul>
+                    {% for warning in result.product_a.warnings %}
+                        <li>{{ warning }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if result.product_b.warnings %}
+            <div>
+                <h3>Warnings for Product B</h3>
+                <ul>
+                    {% for warning in result.product_b.warnings %}
+                        <li>{{ warning }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if result["scores"] is defined %}
+            <div>
+                <h3>Overall score details</h3>
+                <p><strong>Product A score:</strong> {{ result["scores"]["product_a_score"] }}</p>
+                <p><strong>Product B score:</strong> {{ result["scores"]["product_b_score"] }}</p>
+
+                {% if result["scores"]["details"] %}
+                    <ul>
+                        {% for detail in result["scores"]["details"] %}
+                            <li>{{ detail }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if result.criteria != "overall" and result["values"] is defined %}
+            <div>
+                <h3>Comparison values</h3>
+                <p><strong>Product A value:</strong> {{ result["values"]["product_a_value"] }} {{ result["values"]["unit"] }}</p>
+                <p><strong>Product B value:</strong> {{ result["values"]["product_b_value"] }} {{ result["values"]["unit"] }}</p>
+                <p><strong>Difference:</strong> {{ result["values"]["difference"] }} {{ result["values"]["unit"] }}</p>
+            </div>
+        {% endif %}
+
+        <p><a href="/">Back</a></p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,804 @@
+{
+	"info": {
+		"_postman_id": "64885a17-9627-48e5-aa23-b1a2a680cd9d",
+		"name": "Food Comparison API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "53402928"
+	},
+	"item": [
+		{
+			"name": "GET valid overall",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "jakis_klucz_do_api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Almond butter&product_b=Peanut butter&criteria=overall",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"comparisons"
+					],
+					"query": [
+						{
+							"key": "product_a",
+							"value": "Almond butter"
+						},
+						{
+							"key": "product_b",
+							"value": "Peanut butter"
+						},
+						{
+							"key": "criteria",
+							"value": "overall"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "overall Almond butter vs Peanut butter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "jakis_klucz_do_api",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Almond butter&product_b=Peanut butter&criteria=overall",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comparisons"
+							],
+							"query": [
+								{
+									"key": "product_a",
+									"value": "Almond butter"
+								},
+								{
+									"key": "product_b",
+									"value": "Peanut butter"
+								},
+								{
+									"key": "criteria",
+									"value": "overall"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Mar 2026 20:23:38 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "670"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"product_a\": {\n        \"query\": \"Almond butter\",\n        \"name\": \"Almond butter\",\n        \"nutrition_per_100g\": {\n            \"kcal\": 320.5,\n            \"sugar\": 19.2,\n            \"salt\": 0.3,\n            \"protein\": 15.85\n        },\n        \"warnings\": []\n    },\n    \"product_b\": {\n        \"query\": \"Peanut butter\",\n        \"name\": \"Peanut butter\",\n        \"nutrition_per_100g\": {\n            \"kcal\": 595.5,\n            \"sugar\": 9.95,\n            \"salt\": 1.07,\n            \"protein\": 22.6\n        },\n        \"warnings\": []\n    },\n    \"criteria\": \"overall\",\n    \"winner\": \"tie\",\n    \"explanation\": \"Both products have the same overall score.\",\n    \"scores\": {\n        \"product_a_score\": 2,\n        \"product_b_score\": 2,\n        \"details\": [\n            \"Almond butter has fewer calories than Peanut butter.\",\n            \"Peanut butter has less sugar than Almond butter.\",\n            \"Almond butter has less salt than Peanut butter.\",\n            \"Peanut butter has more protein than Almond butter.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET valid other test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "jakis_klucz_do_api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Pineapple&product_b=Raspberries&criteria=less_sugar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"comparisons"
+					],
+					"query": [
+						{
+							"key": "product_a",
+							"value": "Pineapple"
+						},
+						{
+							"key": "product_b",
+							"value": "Raspberries"
+						},
+						{
+							"key": "criteria",
+							"value": "less_sugar"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "less_sugar Pineapple vs Raspberries",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "jakis_klucz_do_api",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Pineapple&product_b=Raspberries&criteria=less_sugar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comparisons"
+							],
+							"query": [
+								{
+									"key": "product_a",
+									"value": "Pineapple"
+								},
+								{
+									"key": "product_b",
+									"value": "Raspberries"
+								},
+								{
+									"key": "criteria",
+									"value": "less_sugar"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Mar 2026 20:24:15 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "561"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"product_a\": {\n        \"query\": \"Pineapple\",\n        \"name\": \"PINEAPPLE\",\n        \"nutrition_per_100g\": {\n            \"kcal\": 53,\n            \"sugar\": 10,\n            \"salt\": 0,\n            \"protein\": 0.59\n        },\n        \"warnings\": [\n            \"OFF data warning: OFF request timed out\"\n        ]\n    },\n    \"product_b\": {\n        \"query\": \"Raspberries\",\n        \"name\": \"RASPBERRIES\",\n        \"nutrition_per_100g\": {\n            \"kcal\": 50,\n            \"sugar\": 4.29,\n            \"salt\": 0,\n            \"protein\": 1.43\n        },\n        \"warnings\": [\n            \"OFF data warning: OFF request timed out\"\n        ]\n    },\n    \"criteria\": \"less_sugar\",\n    \"winner\": \"RASPBERRIES\",\n    \"explanation\": \"RASPBERRIES has less sugar than PINEAPPLE.\",\n    \"values\": {\n        \"product_a_value\": 10,\n        \"product_b_value\": 4.29,\n        \"difference\": 5.71,\n        \"unit\": \"g\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET invalid data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "jakis_klucz_do_api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=A&product_b= &criteria=overall",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"comparisons"
+					],
+					"query": [
+						{
+							"key": "product_a",
+							"value": "A"
+						},
+						{
+							"key": "product_b",
+							"value": " "
+						},
+						{
+							"key": "criteria",
+							"value": "overall"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "\"A\" vs \" \"",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "jakis_klucz_do_api",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=A&product_b= &criteria=overall",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comparisons"
+							],
+							"query": [
+								{
+									"key": "product_a",
+									"value": "A"
+								},
+								{
+									"key": "product_b",
+									"value": " "
+								},
+								{
+									"key": "criteria",
+									"value": "overall"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Mar 2026 20:25:35 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "292"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": [\n        {\n            \"type\": \"string_too_short\",\n            \"loc\": [\n                \"query\",\n                \"product_a\"\n            ],\n            \"msg\": \"String should have at least 2 characters\",\n            \"input\": \"A\",\n            \"ctx\": {\n                \"min_length\": 2\n            }\n        },\n        {\n            \"type\": \"string_too_short\",\n            \"loc\": [\n                \"query\",\n                \"product_b\"\n            ],\n            \"msg\": \"String should have at least 2 characters\",\n            \"input\": \" \",\n            \"ctx\": {\n                \"min_length\": 2\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET no product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "jakis_klucz_do_api",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=qwesrdtfyghujiko&product_b=wasedrftgyhjwasedrtfgsedrftgh&criteria=overall",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"comparisons"
+					],
+					"query": [
+						{
+							"key": "product_a",
+							"value": "qwesrdtfyghujiko"
+						},
+						{
+							"key": "product_b",
+							"value": "wasedrftgyhjwasedrtfgsedrftgh"
+						},
+						{
+							"key": "criteria",
+							"value": "overall"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "qwesrdtfyghujiko vs wasedrftgyhjwasedrtfgsedrftgh",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "jakis_klucz_do_api",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=qwesrdtfyghujiko&product_b=wasedrftgyhjwasedrtfgsedrftgh&criteria=overall",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comparisons"
+							],
+							"query": [
+								{
+									"key": "product_a",
+									"value": "qwesrdtfyghujiko"
+								},
+								{
+									"key": "product_b",
+									"value": "wasedrftgyhjwasedrtfgsedrftgh"
+								},
+								{
+									"key": "criteria",
+									"value": "overall"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Mar 2026 20:26:15 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "48"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Product not found in both databases\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET invalid api key",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "cos",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Almond butter&product_b=Peanut butter&criteria=overall",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"comparisons"
+					],
+					"query": [
+						{
+							"key": "product_a",
+							"value": "Almond butter"
+						},
+						{
+							"key": "product_b",
+							"value": "Peanut butter"
+						},
+						{
+							"key": "criteria",
+							"value": "overall"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "invalid api key",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "cos",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Almond butter&product_b=Peanut butter&criteria=overall",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comparisons"
+							],
+							"query": [
+								{
+									"key": "product_a",
+									"value": "Almond butter"
+								},
+								{
+									"key": "product_b",
+									"value": "Peanut butter"
+								},
+								{
+									"key": "criteria",
+									"value": "overall"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Mar 2026 20:27:17 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "28"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Invalid API key\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET no api key",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "product_a",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "product_b",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "criteria",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"product_a\": \"Almond butter\",\r\n  \"product_b\": \"Peanut butter\",\r\n  \"criteria\": \"overall\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Pineapple&product_b=Raspberries&criteria=overall",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"comparisons"
+					],
+					"query": [
+						{
+							"key": "product_a",
+							"value": "Pineapple"
+						},
+						{
+							"key": "product_b",
+							"value": "Raspberries"
+						},
+						{
+							"key": "criteria",
+							"value": "overall"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "no api key",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "product_a",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "product_b",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "criteria",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/comparisons?product_a=Pineapple&product_b=Raspberries&criteria=overall",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comparisons"
+							],
+							"query": [
+								{
+									"key": "product_a",
+									"value": "Pineapple"
+								},
+								{
+									"key": "product_b",
+									"value": "Raspberries"
+								},
+								{
+									"key": "criteria",
+									"value": "overall"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 22 Mar 2026 20:28:13 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "29"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-store"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"API key required\"\n}"
+				}
+			]
+		}
+	]
+}

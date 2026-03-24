@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Comparison</title>
+</head>
+<body>
+    <h1>Food Comparison</h1>
+    <p>Compare two food products (Using Open Food Facts and USDA FoodData Central)  </p>
+    <form action="/ui/compare" method="get">
+        <div>
+            <label for="product_a">Product A:</label>
+            <input type="text" id="product_a" name="product_a" required minlength="2" maxlength="100">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="product_b">Product B:</label>
+            <input type="text" id="product_b" name="product_b" required minlength="2" maxlength="100">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="criteria">Criterion:</label>
+            <select id="criteria" name="criteria" required>
+                <option value="overall">Overall</option>
+                <option value="less_sugar">Less sugar</option>
+                <option value="less_calories">Less calories</option>
+                <option value="less_salt">Less salt</option>
+                <option value="more_protein">More protein</option>
+            </select>
+        </div>
+
+        <br>
+
+        <button type="submit">Compare</button>
+
+    </form>
+</body>
+</html>
